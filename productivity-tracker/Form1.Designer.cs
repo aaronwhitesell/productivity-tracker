@@ -39,8 +39,8 @@
             this.dateTimePickerDuration = new System.Windows.Forms.DateTimePicker();
             this.panelDuration = new System.Windows.Forms.Panel();
             this.panelDescription = new System.Windows.Forms.Panel();
-            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.checkBoxDateTime = new System.Windows.Forms.CheckBox();
+            this.dateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxStartTime = new System.Windows.Forms.CheckBox();
             this.tabControlProductivityTracker = new System.Windows.Forms.TabControl();
             this.tabPageDataEntry = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -160,21 +160,21 @@
             this.panelDescription.Size = new System.Drawing.Size(587, 28);
             this.panelDescription.TabIndex = 12;
             // 
-            // dateTimePickerStart
+            // dateTimePickerStartTime
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(34, 17);
-            this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(122, 20);
-            this.dateTimePickerStart.TabIndex = 13;
+            this.dateTimePickerStartTime.Location = new System.Drawing.Point(34, 17);
+            this.dateTimePickerStartTime.Name = "dateTimePickerStartTime";
+            this.dateTimePickerStartTime.Size = new System.Drawing.Size(122, 20);
+            this.dateTimePickerStartTime.TabIndex = 13;
             // 
-            // checkBoxDateTime
+            // checkBoxStartTime
             // 
-            this.checkBoxDateTime.AutoSize = true;
-            this.checkBoxDateTime.Location = new System.Drawing.Point(14, 20);
-            this.checkBoxDateTime.Name = "checkBoxDateTime";
-            this.checkBoxDateTime.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxDateTime.TabIndex = 14;
-            this.checkBoxDateTime.UseVisualStyleBackColor = true;
+            this.checkBoxStartTime.AutoSize = true;
+            this.checkBoxStartTime.Location = new System.Drawing.Point(14, 20);
+            this.checkBoxStartTime.Name = "checkBoxStartTime";
+            this.checkBoxStartTime.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxStartTime.TabIndex = 14;
+            this.checkBoxStartTime.UseVisualStyleBackColor = true;
             // 
             // tabControlProductivityTracker
             // 
@@ -204,8 +204,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panelType);
-            this.groupBox1.Controls.Add(this.checkBoxDateTime);
-            this.groupBox1.Controls.Add(this.dateTimePickerStart);
+            this.groupBox1.Controls.Add(this.checkBoxStartTime);
+            this.groupBox1.Controls.Add(this.dateTimePickerStartTime);
             this.groupBox1.Controls.Add(this.panelDuration);
             this.groupBox1.Location = new System.Drawing.Point(166, 323);
             this.groupBox1.Name = "groupBox1";
@@ -259,8 +259,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDuration;
         private System.Windows.Forms.Panel panelDuration;
         private System.Windows.Forms.Panel panelDescription;
-        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
-        private System.Windows.Forms.CheckBox checkBoxDateTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartTime;
+        private System.Windows.Forms.CheckBox checkBoxStartTime;
         private System.Windows.Forms.TabControl tabControlProductivityTracker;
         private System.Windows.Forms.TabPage tabPageDataEntry;
         private System.Windows.Forms.TabPage tabPageAnalysis;

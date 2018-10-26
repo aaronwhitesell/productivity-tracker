@@ -41,7 +41,7 @@ namespace productivity_tracker
             { 
                 string createTable = "CREATE TABLE IF NOT EXISTS [productivity_tracker] ("
                     + "[id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-                    + "[date_time] TEXT NOT NULL,"
+                    + "[start_time] TEXT NOT NULL,"
                     + "[duration] TEXT NOT NULL,"
                     + "[type] TEXT NOT NULL,"
                     + "[description] TEXT NOT NULL)";
@@ -57,8 +57,8 @@ namespace productivity_tracker
             adapter.Fill(table);
             dataGridView1.DataSource = new BindingSource(table, null);
 
-            dateTimePickerStart.Format = DateTimePickerFormat.Custom;
-            dateTimePickerStart.CustomFormat = "yyyy-MM-dd HH:mm";
+            dateTimePickerStartTime.Format = DateTimePickerFormat.Custom;
+            dateTimePickerStartTime.CustomFormat = "yyyy-MM-dd HH:mm";
 
             dateTimePickerDuration.Format = DateTimePickerFormat.Custom;
             dateTimePickerDuration.CustomFormat = "HH:mm";
@@ -126,20 +126,20 @@ namespace productivity_tracker
                     rb = radioButtonLeisure;
                 }
 
-                DateTime dateTime;
-                if (checkBoxDateTime.Checked)
+                DateTime startTime;
+                if (checkBoxStartTime.Checked)
                 {
-                    dateTime = dateTimePickerStart.Value;
+                    startTime = dateTimePickerStartTime.Value;
                 }
                 else
                 {
-                    dateTime = DateTime.Now;
+                    startTime = DateTime.Now;
                 }
 
                 // TODO - ALW: Escape single quotes
                 // Example: [productivity-tracker] Don't allow rows with blanks
-                string sql = "INSERT INTO productivity_tracker (date_time, duration, type, description) values ('{0}', '{1}', '{2}', '{3}')";
-                sql = String.Format(sql, dateTime.ToString("yyyy-MM-dd HH:mm"), Program.ToString(dateTimePickerDuration.Value), rb.Text, textBoxDesc.Text);
+                string sql = "INSERT INTO productivity_tracker (start_time, duration, type, description) values ('{0}', '{1}', '{2}', '{3}')";
+                sql = String.Format(sql, startTime.ToString("yyyy-MM-dd HH:mm"), Program.ToString(dateTimePickerDuration.Value), rb.Text, textBoxDesc.Text);
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
 
@@ -157,7 +157,7 @@ namespace productivity_tracker
                 radioButtonPersonal.Checked = false;
                 radioButtonLeisure.Checked = false;
                 textBoxDesc.Text = "";
-                checkBoxDateTime.Checked = false;
+                checkBoxStartTime.Checked = false;
             }
         }
 
