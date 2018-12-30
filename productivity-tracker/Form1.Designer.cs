@@ -45,6 +45,27 @@
             this.tabPageDataEntry = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPageAnalysis = new System.Windows.Forms.TabPage();
+            this.groupBoxTime = new System.Windows.Forms.GroupBox();
+            this.textBoxLeisureTime = new System.Windows.Forms.TextBox();
+            this.textBoxPersonalTime = new System.Windows.Forms.TextBox();
+            this.textBoxWorkTime = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelPersonalTime = new System.Windows.Forms.Label();
+            this.labelWorkTime = new System.Windows.Forms.Label();
+            this.groupBoxPercentage = new System.Windows.Forms.GroupBox();
+            this.textBoxLeisurePercent = new System.Windows.Forms.TextBox();
+            this.textBoxPersonalPercent = new System.Windows.Forms.TextBox();
+            this.labelLeisurePercent = new System.Windows.Forms.Label();
+            this.labelPersonalPercent = new System.Windows.Forms.Label();
+            this.labelWorkPercent = new System.Windows.Forms.Label();
+            this.textBoxWorkPercent = new System.Windows.Forms.TextBox();
+            this.buttonCalculate = new System.Windows.Forms.Button();
+            this.groupBoxHowFar = new System.Windows.Forms.GroupBox();
+            this.radioButton1Year = new System.Windows.Forms.RadioButton();
+            this.radioButton90Days = new System.Windows.Forms.RadioButton();
+            this.radioButton30Days = new System.Windows.Forms.RadioButton();
+            this.radioButton7Days = new System.Windows.Forms.RadioButton();
+            this.groupBoxResults = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelType.SuspendLayout();
             this.panelDuration.SuspendLayout();
@@ -52,6 +73,11 @@
             this.tabControlProductivityTracker.SuspendLayout();
             this.tabPageDataEntry.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPageAnalysis.SuspendLayout();
+            this.groupBoxTime.SuspendLayout();
+            this.groupBoxPercentage.SuspendLayout();
+            this.groupBoxHowFar.SuspendLayout();
+            this.groupBoxResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -215,6 +241,9 @@
             // 
             // tabPageAnalysis
             // 
+            this.tabPageAnalysis.Controls.Add(this.groupBoxResults);
+            this.tabPageAnalysis.Controls.Add(this.buttonCalculate);
+            this.tabPageAnalysis.Controls.Add(this.groupBoxHowFar);
             this.tabPageAnalysis.Location = new System.Drawing.Point(4, 22);
             this.tabPageAnalysis.Name = "tabPageAnalysis";
             this.tabPageAnalysis.Padding = new System.Windows.Forms.Padding(3);
@@ -222,6 +251,231 @@
             this.tabPageAnalysis.TabIndex = 1;
             this.tabPageAnalysis.Text = "Analysis";
             this.tabPageAnalysis.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTime
+            // 
+            this.groupBoxTime.Controls.Add(this.textBoxLeisureTime);
+            this.groupBoxTime.Controls.Add(this.textBoxPersonalTime);
+            this.groupBoxTime.Controls.Add(this.textBoxWorkTime);
+            this.groupBoxTime.Controls.Add(this.label1);
+            this.groupBoxTime.Controls.Add(this.labelPersonalTime);
+            this.groupBoxTime.Controls.Add(this.labelWorkTime);
+            this.groupBoxTime.Location = new System.Drawing.Point(80, 31);
+            this.groupBoxTime.Name = "groupBoxTime";
+            this.groupBoxTime.Size = new System.Drawing.Size(146, 145);
+            this.groupBoxTime.TabIndex = 6;
+            this.groupBoxTime.TabStop = false;
+            this.groupBoxTime.Text = "DD:MM:HH";
+            // 
+            // textBoxLeisureTime
+            // 
+            this.textBoxLeisureTime.Enabled = false;
+            this.textBoxLeisureTime.Location = new System.Drawing.Point(77, 105);
+            this.textBoxLeisureTime.Name = "textBoxLeisureTime";
+            this.textBoxLeisureTime.Size = new System.Drawing.Size(48, 20);
+            this.textBoxLeisureTime.TabIndex = 10;
+            // 
+            // textBoxPersonalTime
+            // 
+            this.textBoxPersonalTime.Enabled = false;
+            this.textBoxPersonalTime.Location = new System.Drawing.Point(77, 66);
+            this.textBoxPersonalTime.Name = "textBoxPersonalTime";
+            this.textBoxPersonalTime.Size = new System.Drawing.Size(48, 20);
+            this.textBoxPersonalTime.TabIndex = 9;
+            // 
+            // textBoxWorkTime
+            // 
+            this.textBoxWorkTime.Enabled = false;
+            this.textBoxWorkTime.Location = new System.Drawing.Point(77, 27);
+            this.textBoxWorkTime.Name = "textBoxWorkTime";
+            this.textBoxWorkTime.Size = new System.Drawing.Size(48, 20);
+            this.textBoxWorkTime.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Leisure";
+            // 
+            // labelPersonalTime
+            // 
+            this.labelPersonalTime.AutoSize = true;
+            this.labelPersonalTime.Location = new System.Drawing.Point(18, 70);
+            this.labelPersonalTime.Name = "labelPersonalTime";
+            this.labelPersonalTime.Size = new System.Drawing.Size(48, 13);
+            this.labelPersonalTime.TabIndex = 7;
+            this.labelPersonalTime.Text = "Personal";
+            // 
+            // labelWorkTime
+            // 
+            this.labelWorkTime.AutoSize = true;
+            this.labelWorkTime.Location = new System.Drawing.Point(18, 31);
+            this.labelWorkTime.Name = "labelWorkTime";
+            this.labelWorkTime.Size = new System.Drawing.Size(33, 13);
+            this.labelWorkTime.TabIndex = 6;
+            this.labelWorkTime.Text = "Work";
+            // 
+            // groupBoxPercentage
+            // 
+            this.groupBoxPercentage.Controls.Add(this.textBoxLeisurePercent);
+            this.groupBoxPercentage.Controls.Add(this.textBoxPersonalPercent);
+            this.groupBoxPercentage.Controls.Add(this.labelLeisurePercent);
+            this.groupBoxPercentage.Controls.Add(this.labelPersonalPercent);
+            this.groupBoxPercentage.Controls.Add(this.labelWorkPercent);
+            this.groupBoxPercentage.Controls.Add(this.textBoxWorkPercent);
+            this.groupBoxPercentage.Location = new System.Drawing.Point(80, 199);
+            this.groupBoxPercentage.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxPercentage.Name = "groupBoxPercentage";
+            this.groupBoxPercentage.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxPercentage.Size = new System.Drawing.Size(146, 145);
+            this.groupBoxPercentage.TabIndex = 2;
+            this.groupBoxPercentage.TabStop = false;
+            this.groupBoxPercentage.Text = "Percentage";
+            // 
+            // textBoxLeisurePercent
+            // 
+            this.textBoxLeisurePercent.Enabled = false;
+            this.textBoxLeisurePercent.Location = new System.Drawing.Point(77, 105);
+            this.textBoxLeisurePercent.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxLeisurePercent.Name = "textBoxLeisurePercent";
+            this.textBoxLeisurePercent.Size = new System.Drawing.Size(48, 20);
+            this.textBoxLeisurePercent.TabIndex = 5;
+            // 
+            // textBoxPersonalPercent
+            // 
+            this.textBoxPersonalPercent.Enabled = false;
+            this.textBoxPersonalPercent.Location = new System.Drawing.Point(77, 66);
+            this.textBoxPersonalPercent.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPersonalPercent.Name = "textBoxPersonalPercent";
+            this.textBoxPersonalPercent.Size = new System.Drawing.Size(48, 20);
+            this.textBoxPersonalPercent.TabIndex = 4;
+            // 
+            // labelLeisurePercent
+            // 
+            this.labelLeisurePercent.AutoSize = true;
+            this.labelLeisurePercent.Location = new System.Drawing.Point(18, 109);
+            this.labelLeisurePercent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLeisurePercent.Name = "labelLeisurePercent";
+            this.labelLeisurePercent.Size = new System.Drawing.Size(41, 13);
+            this.labelLeisurePercent.TabIndex = 3;
+            this.labelLeisurePercent.Text = "Leisure";
+            // 
+            // labelPersonalPercent
+            // 
+            this.labelPersonalPercent.AutoSize = true;
+            this.labelPersonalPercent.Location = new System.Drawing.Point(18, 70);
+            this.labelPersonalPercent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPersonalPercent.Name = "labelPersonalPercent";
+            this.labelPersonalPercent.Size = new System.Drawing.Size(48, 13);
+            this.labelPersonalPercent.TabIndex = 2;
+            this.labelPersonalPercent.Text = "Personal";
+            // 
+            // labelWorkPercent
+            // 
+            this.labelWorkPercent.AutoSize = true;
+            this.labelWorkPercent.Location = new System.Drawing.Point(18, 31);
+            this.labelWorkPercent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWorkPercent.Name = "labelWorkPercent";
+            this.labelWorkPercent.Size = new System.Drawing.Size(33, 13);
+            this.labelWorkPercent.TabIndex = 1;
+            this.labelWorkPercent.Text = "Work";
+            // 
+            // textBoxWorkPercent
+            // 
+            this.textBoxWorkPercent.Enabled = false;
+            this.textBoxWorkPercent.Location = new System.Drawing.Point(77, 27);
+            this.textBoxWorkPercent.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWorkPercent.Name = "textBoxWorkPercent";
+            this.textBoxWorkPercent.Size = new System.Drawing.Size(48, 20);
+            this.textBoxWorkPercent.TabIndex = 0;
+            // 
+            // buttonCalculate
+            // 
+            this.buttonCalculate.Location = new System.Drawing.Point(93, 304);
+            this.buttonCalculate.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCalculate.Name = "buttonCalculate";
+            this.buttonCalculate.Size = new System.Drawing.Size(94, 28);
+            this.buttonCalculate.TabIndex = 1;
+            this.buttonCalculate.Text = "Calculate";
+            this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
+            // 
+            // groupBoxHowFar
+            // 
+            this.groupBoxHowFar.Controls.Add(this.radioButton1Year);
+            this.groupBoxHowFar.Controls.Add(this.radioButton90Days);
+            this.groupBoxHowFar.Controls.Add(this.radioButton30Days);
+            this.groupBoxHowFar.Controls.Add(this.radioButton7Days);
+            this.groupBoxHowFar.Location = new System.Drawing.Point(93, 92);
+            this.groupBoxHowFar.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxHowFar.Name = "groupBoxHowFar";
+            this.groupBoxHowFar.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxHowFar.Size = new System.Drawing.Size(94, 185);
+            this.groupBoxHowFar.TabIndex = 0;
+            this.groupBoxHowFar.TabStop = false;
+            this.groupBoxHowFar.Text = "How far back?";
+            // 
+            // radioButton1Year
+            // 
+            this.radioButton1Year.AutoSize = true;
+            this.radioButton1Year.Location = new System.Drawing.Point(16, 142);
+            this.radioButton1Year.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton1Year.Name = "radioButton1Year";
+            this.radioButton1Year.Size = new System.Drawing.Size(54, 17);
+            this.radioButton1Year.TabIndex = 3;
+            this.radioButton1Year.TabStop = true;
+            this.radioButton1Year.Text = "1 year";
+            this.radioButton1Year.UseVisualStyleBackColor = true;
+            // 
+            // radioButton90Days
+            // 
+            this.radioButton90Days.AutoSize = true;
+            this.radioButton90Days.Location = new System.Drawing.Point(16, 105);
+            this.radioButton90Days.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton90Days.Name = "radioButton90Days";
+            this.radioButton90Days.Size = new System.Drawing.Size(62, 17);
+            this.radioButton90Days.TabIndex = 2;
+            this.radioButton90Days.TabStop = true;
+            this.radioButton90Days.Text = "90 days";
+            this.radioButton90Days.UseVisualStyleBackColor = true;
+            // 
+            // radioButton30Days
+            // 
+            this.radioButton30Days.AutoSize = true;
+            this.radioButton30Days.Location = new System.Drawing.Point(16, 68);
+            this.radioButton30Days.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton30Days.Name = "radioButton30Days";
+            this.radioButton30Days.Size = new System.Drawing.Size(62, 17);
+            this.radioButton30Days.TabIndex = 1;
+            this.radioButton30Days.TabStop = true;
+            this.radioButton30Days.Text = "30 days";
+            this.radioButton30Days.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7Days
+            // 
+            this.radioButton7Days.AutoSize = true;
+            this.radioButton7Days.Location = new System.Drawing.Point(16, 31);
+            this.radioButton7Days.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton7Days.Name = "radioButton7Days";
+            this.radioButton7Days.Size = new System.Drawing.Size(56, 17);
+            this.radioButton7Days.TabIndex = 0;
+            this.radioButton7Days.TabStop = true;
+            this.radioButton7Days.Text = "7 days";
+            this.radioButton7Days.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxResults
+            // 
+            this.groupBoxResults.Controls.Add(this.groupBoxTime);
+            this.groupBoxResults.Controls.Add(this.groupBoxPercentage);
+            this.groupBoxResults.Location = new System.Drawing.Point(281, 24);
+            this.groupBoxResults.Name = "groupBoxResults";
+            this.groupBoxResults.Size = new System.Drawing.Size(306, 373);
+            this.groupBoxResults.TabIndex = 7;
+            this.groupBoxResults.TabStop = false;
+            this.groupBoxResults.Text = "Results";
             // 
             // FormProductivityTracker
             // 
@@ -242,6 +496,14 @@
             this.tabPageDataEntry.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPageAnalysis.ResumeLayout(false);
+            this.groupBoxTime.ResumeLayout(false);
+            this.groupBoxTime.PerformLayout();
+            this.groupBoxPercentage.ResumeLayout(false);
+            this.groupBoxPercentage.PerformLayout();
+            this.groupBoxHowFar.ResumeLayout(false);
+            this.groupBoxHowFar.PerformLayout();
+            this.groupBoxResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -265,6 +527,27 @@
         private System.Windows.Forms.TabPage tabPageDataEntry;
         private System.Windows.Forms.TabPage tabPageAnalysis;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxHowFar;
+        private System.Windows.Forms.RadioButton radioButton1Year;
+        private System.Windows.Forms.RadioButton radioButton90Days;
+        private System.Windows.Forms.RadioButton radioButton30Days;
+        private System.Windows.Forms.RadioButton radioButton7Days;
+        private System.Windows.Forms.Button buttonCalculate;
+        private System.Windows.Forms.GroupBox groupBoxPercentage;
+        private System.Windows.Forms.TextBox textBoxLeisurePercent;
+        private System.Windows.Forms.TextBox textBoxPersonalPercent;
+        private System.Windows.Forms.Label labelLeisurePercent;
+        private System.Windows.Forms.Label labelPersonalPercent;
+        private System.Windows.Forms.Label labelWorkPercent;
+        private System.Windows.Forms.TextBox textBoxWorkPercent;
+        private System.Windows.Forms.GroupBox groupBoxTime;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPersonalTime;
+        private System.Windows.Forms.Label labelWorkTime;
+        private System.Windows.Forms.TextBox textBoxLeisureTime;
+        private System.Windows.Forms.TextBox textBoxPersonalTime;
+        private System.Windows.Forms.TextBox textBoxWorkTime;
+        private System.Windows.Forms.GroupBox groupBoxResults;
     }
 }
 

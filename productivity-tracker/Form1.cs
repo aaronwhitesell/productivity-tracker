@@ -49,6 +49,7 @@ namespace productivity_tracker
                 command.ExecuteNonQuery();
             }
      
+            // Data Entry Tab
             // Fill data grid view with last 10 entries
             string sql = "select * from productivity_tracker order by id DESC limit 10";
             command = new SQLiteCommand(sql, m_dbConnection);
@@ -69,6 +70,9 @@ namespace productivity_tracker
             radioButtonWork.BackColor = Color.FromArgb(0, default(Color));
             radioButtonPersonal.BackColor = Color.FromArgb(0, default(Color));
             radioButtonLeisure.BackColor = Color.FromArgb(0, default(Color));
+
+            // Analysis Tab
+            radioButton7Days.Checked = true;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -181,6 +185,56 @@ namespace productivity_tracker
             dataGridView1.Columns[1].Width = 92;
             dataGridView1.Columns[2].Width = 50;
             dataGridView1.Columns[3].Width = 49;
+        }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            int historyInDays = 0;
+            if (radioButton7Days.Checked)
+            {
+                historyInDays = 7;
+            }
+            else if (radioButton30Days.Checked)
+            {
+                historyInDays = 30;
+            }
+            else if (radioButton90Days.Checked)
+            {
+                historyInDays = 90;
+            }
+            else if (radioButton1Year.Checked)
+            {
+                historyInDays = 365;
+            }
+
+            string str = "SELECT SUM(strftime('%s', duration) - strftime('%s', '00:00')) FROM productivity_tracker WHERE type = '{0}' AND start_time >= DATETIME('now', '-{1} day')";
+            string sql = String.Format(str, "work", historyInDays);
+            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            int workSeconds = command.ExecuteScalar() == System.DBNull.Value ? 0 : Convert.ToInt32(command.ExecuteScalar());
+            TimeSpan workTime = TimeSpan.FromSeconds(workSeconds);
+
+            sql = String.Format(str, "Personal", historyInDays);
+            command = new SQLiteCommand(sql, m_dbConnection);
+            int personalSeconds = command.ExecuteScalar() == System.DBNull.Value ? 0 : Convert.ToInt32(command.ExecuteScalar());
+            TimeSpan personalTime = TimeSpan.FromSeconds(personalSeconds);
+
+            sql = String.Format(str, "Leisure", historyInDays);
+            command = new SQLiteCommand(sql, m_dbConnection);
+            int leisureSeconds = command.ExecuteScalar() == System.DBNull.Value ? 0 : Convert.ToInt32(command.ExecuteScalar());
+            TimeSpan leisureTime = TimeSpan.FromSeconds(leisureSeconds);
+
+            textBoxWorkTime.Text = Program.ToString(workTime);
+            textBoxPersonalTime.Text = Program.ToString(personalTime);
+            textBoxLeisureTime.Text = Program.ToString(leisureTime);
+
+            double totalTime = workTime.TotalSeconds + personalTime.TotalSeconds + leisureTime.TotalSeconds;
+            int workPercent = totalTime == 0 ? 0 : Convert.ToInt32(workTime.TotalSeconds / totalTime * 100);
+            int personalPercent = totalTime == 0 ? 0 : Convert.ToInt32(personalTime.TotalSeconds / totalTime * 100);
+            int leisurePercent = totalTime == 0 ? 0 : Convert.ToInt32(leisureTime.TotalSeconds / totalTime * 100);
+
+            textBoxWorkPercent.Text = workPercent.ToString();
+            textBoxPersonalPercent.Text = personalPercent.ToString();
+            textBoxLeisurePercent.Text = leisurePercent.ToString();
         }
     }
 }
