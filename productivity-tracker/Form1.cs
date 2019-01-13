@@ -208,7 +208,7 @@ namespace productivity_tracker
             }
 
             string str = "SELECT SUM(strftime('%s', duration) - strftime('%s', '00:00')) FROM productivity_tracker WHERE type = '{0}' AND start_time >= DATETIME('now', '-{1} day')";
-            string sql = String.Format(str, "work", historyInDays);
+            string sql = String.Format(str, "Work", historyInDays);
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             int workSeconds = command.ExecuteScalar() == System.DBNull.Value ? 0 : Convert.ToInt32(command.ExecuteScalar());
             TimeSpan workTime = TimeSpan.FromSeconds(workSeconds);

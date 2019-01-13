@@ -45,6 +45,7 @@
             this.tabPageDataEntry = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPageAnalysis = new System.Windows.Forms.TabPage();
+            this.groupBoxResults = new System.Windows.Forms.GroupBox();
             this.groupBoxTime = new System.Windows.Forms.GroupBox();
             this.textBoxLeisureTime = new System.Windows.Forms.TextBox();
             this.textBoxPersonalTime = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.radioButton90Days = new System.Windows.Forms.RadioButton();
             this.radioButton30Days = new System.Windows.Forms.RadioButton();
             this.radioButton7Days = new System.Windows.Forms.RadioButton();
-            this.groupBoxResults = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelType.SuspendLayout();
             this.panelDuration.SuspendLayout();
@@ -74,10 +74,10 @@
             this.tabPageDataEntry.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageAnalysis.SuspendLayout();
+            this.groupBoxResults.SuspendLayout();
             this.groupBoxTime.SuspendLayout();
             this.groupBoxPercentage.SuspendLayout();
             this.groupBoxHowFar.SuspendLayout();
-            this.groupBoxResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -109,7 +109,6 @@
             this.dataGridView1.Location = new System.Drawing.Point(4, 5);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(604, 263);
             this.dataGridView1.TabIndex = 3;
@@ -251,6 +250,17 @@
             this.tabPageAnalysis.TabIndex = 1;
             this.tabPageAnalysis.Text = "Analysis";
             this.tabPageAnalysis.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxResults
+            // 
+            this.groupBoxResults.Controls.Add(this.groupBoxTime);
+            this.groupBoxResults.Controls.Add(this.groupBoxPercentage);
+            this.groupBoxResults.Location = new System.Drawing.Point(281, 24);
+            this.groupBoxResults.Name = "groupBoxResults";
+            this.groupBoxResults.Size = new System.Drawing.Size(306, 373);
+            this.groupBoxResults.TabIndex = 7;
+            this.groupBoxResults.TabStop = false;
+            this.groupBoxResults.Text = "Results";
             // 
             // groupBoxTime
             // 
@@ -466,17 +476,6 @@
             this.radioButton7Days.Text = "7 days";
             this.radioButton7Days.UseVisualStyleBackColor = true;
             // 
-            // groupBoxResults
-            // 
-            this.groupBoxResults.Controls.Add(this.groupBoxTime);
-            this.groupBoxResults.Controls.Add(this.groupBoxPercentage);
-            this.groupBoxResults.Location = new System.Drawing.Point(281, 24);
-            this.groupBoxResults.Name = "groupBoxResults";
-            this.groupBoxResults.Size = new System.Drawing.Size(306, 373);
-            this.groupBoxResults.TabIndex = 7;
-            this.groupBoxResults.TabStop = false;
-            this.groupBoxResults.Text = "Results";
-            // 
             // FormProductivityTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,13 +496,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPageAnalysis.ResumeLayout(false);
+            this.groupBoxResults.ResumeLayout(false);
             this.groupBoxTime.ResumeLayout(false);
             this.groupBoxTime.PerformLayout();
             this.groupBoxPercentage.ResumeLayout(false);
             this.groupBoxPercentage.PerformLayout();
             this.groupBoxHowFar.ResumeLayout(false);
             this.groupBoxHowFar.PerformLayout();
-            this.groupBoxResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
