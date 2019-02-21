@@ -236,5 +236,21 @@ namespace productivity_tracker
             textBoxPersonalPercent.Text = personalPercent.ToString();
             textBoxLeisurePercent.Text = leisurePercent.ToString();
         }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            // Save edit to database
+            int cellColumnIndex = dataGridView1.CurrentCell.ColumnIndex;
+            if (Enumerable.Range(1, 4).Contains(cellColumnIndex))
+            {
+                string sql = "UPDATE productivity_tracker SET {0} = '{1}' WHERE id = {2}";
+                string[] tableColumns = { "start_time", "duration", "type", "description" };
+                string cellValue = dataGridView1.CurrentRow.Cells[cellColumnIndex].Value.ToString();
+                string id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                sql = String.Format(sql, tableColumns[cellColumnIndex - 1], cellValue, id);
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
