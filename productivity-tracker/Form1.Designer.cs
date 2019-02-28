@@ -40,7 +40,6 @@
             this.panelDuration = new System.Windows.Forms.Panel();
             this.panelDescription = new System.Windows.Forms.Panel();
             this.dateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
-            this.checkBoxStartTime = new System.Windows.Forms.CheckBox();
             this.tabControlProductivityTracker = new System.Windows.Forms.TabControl();
             this.tabPageDataEntry = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -138,7 +137,7 @@
             this.panelType.Controls.Add(this.radioButtonLeisure);
             this.panelType.Controls.Add(this.radioButtonPersonal);
             this.panelType.Controls.Add(this.radioButtonWork);
-            this.panelType.Location = new System.Drawing.Point(186, 11);
+            this.panelType.Location = new System.Drawing.Point(163, 11);
             this.panelType.Name = "panelType";
             this.panelType.Size = new System.Drawing.Size(78, 69);
             this.panelType.TabIndex = 7;
@@ -173,7 +172,7 @@
             // panelDuration
             // 
             this.panelDuration.Controls.Add(this.dateTimePickerDuration);
-            this.panelDuration.Location = new System.Drawing.Point(34, 47);
+            this.panelDuration.Location = new System.Drawing.Point(11, 47);
             this.panelDuration.Name = "panelDuration";
             this.panelDuration.Size = new System.Drawing.Size(60, 28);
             this.panelDuration.TabIndex = 11;
@@ -188,19 +187,10 @@
             // 
             // dateTimePickerStartTime
             // 
-            this.dateTimePickerStartTime.Location = new System.Drawing.Point(34, 17);
+            this.dateTimePickerStartTime.Location = new System.Drawing.Point(11, 17);
             this.dateTimePickerStartTime.Name = "dateTimePickerStartTime";
             this.dateTimePickerStartTime.Size = new System.Drawing.Size(122, 20);
             this.dateTimePickerStartTime.TabIndex = 13;
-            // 
-            // checkBoxStartTime
-            // 
-            this.checkBoxStartTime.AutoSize = true;
-            this.checkBoxStartTime.Location = new System.Drawing.Point(14, 20);
-            this.checkBoxStartTime.Name = "checkBoxStartTime";
-            this.checkBoxStartTime.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxStartTime.TabIndex = 14;
-            this.checkBoxStartTime.UseVisualStyleBackColor = true;
             // 
             // tabControlProductivityTracker
             // 
@@ -230,12 +220,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panelType);
-            this.groupBox1.Controls.Add(this.checkBoxStartTime);
             this.groupBox1.Controls.Add(this.dateTimePickerStartTime);
             this.groupBox1.Controls.Add(this.panelDuration);
-            this.groupBox1.Location = new System.Drawing.Point(166, 323);
+            this.groupBox1.Location = new System.Drawing.Point(178, 323);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 86);
+            this.groupBox1.Size = new System.Drawing.Size(253, 86);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
@@ -495,7 +484,6 @@
             this.tabControlProductivityTracker.ResumeLayout(false);
             this.tabPageDataEntry.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabPageAnalysis.ResumeLayout(false);
             this.groupBoxResults.ResumeLayout(false);
             this.groupBoxTime.ResumeLayout(false);
@@ -522,7 +510,6 @@
         private System.Windows.Forms.Panel panelDuration;
         private System.Windows.Forms.Panel panelDescription;
         private System.Windows.Forms.DateTimePicker dateTimePickerStartTime;
-        private System.Windows.Forms.CheckBox checkBoxStartTime;
         private System.Windows.Forms.TabControl tabControlProductivityTracker;
         private System.Windows.Forms.TabPage tabPageDataEntry;
         private System.Windows.Forms.TabPage tabPageAnalysis;

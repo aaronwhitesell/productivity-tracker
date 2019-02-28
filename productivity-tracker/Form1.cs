@@ -129,16 +129,7 @@ namespace productivity_tracker
                 {
                     rb = radioButtonLeisure;
                 }
-
-                DateTime startTime;
-                if (checkBoxStartTime.Checked)
-                {
-                    startTime = dateTimePickerStartTime.Value;
-                }
-                else
-                {
-                    startTime = DateTime.Now;
-                }
+                DateTime startTime = dateTimePickerStartTime.Value;
 
                 // TODO - ALW: Escape single quotes
                 // Example: [productivity-tracker] Don't allow rows with blanks
@@ -161,7 +152,6 @@ namespace productivity_tracker
                 radioButtonPersonal.Checked = false;
                 radioButtonLeisure.Checked = false;
                 textBoxDesc.Text = "";
-                checkBoxStartTime.Checked = false;
             }
         }
 
