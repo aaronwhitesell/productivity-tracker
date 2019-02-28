@@ -48,16 +48,9 @@ namespace productivity_tracker
                 command = new SQLiteCommand(createTable, m_dbConnection);
                 command.ExecuteNonQuery();
             }
-     
-            // Data Entry Tab
-            // Fill data grid view with last 10 entries
-            string sql = "select * from productivity_tracker order by id DESC limit 10";
-            command = new SQLiteCommand(sql, m_dbConnection);
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            dataGridView1.DataSource = new BindingSource(table, null);
 
+            // Data Entry Tab
+            dataGridFill();
             dateTimePickerStartTime.Format = DateTimePickerFormat.Custom;
             dateTimePickerStartTime.CustomFormat = "yyyy-MM-dd HH:mm";
 
@@ -167,6 +160,8 @@ namespace productivity_tracker
 
                 dataGridView1.Rows.RemoveAt(row.Index);
             }
+
+            dataGridFill();
         }
 
         private void FormProductivityTracker_Load_1(object sender, EventArgs e)
@@ -241,6 +236,17 @@ namespace productivity_tracker
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
             }
+        }
+
+        private void dataGridFill()
+        {
+            // Fill data grid view with last 10 entries
+            string sql = "select * from productivity_tracker order by id DESC limit 10";
+            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridView1.DataSource = new BindingSource(table, null);
         }
     }
 }
