@@ -122,12 +122,11 @@ namespace productivity_tracker
                 {
                     rb = radioButtonLeisure;
                 }
+
                 DateTime startTime = dateTimePickerStartTime.Value;
 
-                // TODO - ALW: Escape single quotes
-                // Example: [productivity-tracker] Don't allow rows with blanks
                 string sql = "INSERT INTO productivity_tracker (start_time, duration, type, description) values ('{0}', '{1}', '{2}', '{3}')";
-                sql = String.Format(sql, startTime.ToString("yyyy-MM-dd HH:mm"), Program.ToString(dateTimePickerDuration.Value), rb.Text, textBoxDesc.Text);
+                sql = String.Format(sql, startTime.ToString("yyyy-MM-dd HH:mm"), Program.ToString(dateTimePickerDuration.Value), rb.Text, escapeSingleQuotes(textBoxDesc.Text));
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
 
@@ -247,6 +246,20 @@ namespace productivity_tracker
             DataTable table = new DataTable();
             adapter.Fill(table);
             dataGridView1.DataSource = new BindingSource(table, null);
+        }
+
+        private string escapeSingleQuotes(string text)
+        {
+            int currentOccurrence = text.IndexOf("'", 0);
+            while (currentOccurrence != -1)
+            {
+                // Escape single quote
+                text = text.Insert(currentOccurrence, "'");
+                // Increment past escaped single quote and look for next
+                currentOccurrence = text.IndexOf("'", currentOccurrence + 2);
+            }
+
+            return text;
         }
     }
 }
